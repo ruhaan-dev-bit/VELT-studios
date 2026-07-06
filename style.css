@@ -1,0 +1,677 @@
+/* --- 1. Global Reset & Theme Root --- */
+@import url('https://googleapis.com');
+
+:root {
+    --bg-dark: #070908;
+    /* Rich cyber-charcoal black */
+    --card-bg: rgba(18, 23, 20, 0.6);
+    /* Translucent glassmorphic container base */
+    --neon-green: #39ff14;
+    /* High-visibility electric lime green */
+    --electric-yellow: #fff200;
+    /* Bright neon contrast yellow */
+    --text-main: #f9fafb;
+    /* Crisp, readable off-white */
+    --text-muted: #9ca3af;
+    /* Muted slate gray for secondary details */
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Ultra-smooth physics transition */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 2. Advanced Interactive Elements --- */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--neon-green);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.text-highlight {
+    color: var(--electric-yellow);
+    text-shadow: 0 0 30px rgba(255, 242, 0, 0.2);
+}
+
+.text-green {
+    color: var(--neon-green);
+    text-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+}
+
+.section-tag {
+    font-family: var(--font-display);
+    color: var(--neon-green);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 3.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* --- 3. Premium Glassmorphic Navigation with Logo Icon --- */
+header {
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 9, 8, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.08);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* Comfortably spaces the logo image from the text name */
+}
+
+.nav-logo-img {
+    height: 38px;
+    /* Comfortably sizes the logo icon to match text proportions */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.3));
+    /* Adds a premium subtle green glow */
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--neon-green);
+    font-weight: 500;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 2.2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: var(--neon-green);
+    transition: var(--transition);
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--neon-green);
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+.cta-btn-nav {
+    background: transparent;
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.cta-btn-nav:hover {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.35);
+    transform: translateY(-2px);
+}
+
+/* --- 4. Restored Clean Premium Hero Section --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 60px 5%;
+    position: relative;
+    overflow: hidden;
+    /* Clean, highly readable digital matrix grid pattern background */
+    background-image:
+        linear-gradient(rgba(57, 255, 20, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 255, 20, 0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    background: rgba(18, 23, 20, 0.4);
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+}
+
+.badge {
+    background: rgba(57, 255, 20, 0.08);
+    color: var(--neon-green);
+    border: 1px solid rgba(57, 255, 20, 0.25);
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    font-family: var(--font-display);
+    box-shadow: 0 4px 20px rgba(57, 255, 20, 0.05);
+}
+
+.hero-content h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.8rem;
+    letter-spacing: -2px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.65;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+.primary-btn:hover {
+    background: var(--electric-yellow);
+    box-shadow: 0 0 35px rgba(255, 242, 0, 0.45);
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.secondary-btn:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    background: rgba(57, 255, 20, 0.03);
+    transform: translateY(-3px);
+}
+
+/* Ambient Radial Design Glows */
+.hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    top: -10%;
+    right: -10%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-glow-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 242, 0, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+    bottom: -10%;
+    left: -10%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- 5. High-Velocity Text Ticker --- */
+.ticker-wrap {
+    width: 100%;
+    background: var(--electric-yellow);
+    overflow: hidden;
+    padding: 1.2rem 0;
+    transform: rotate(-1deg);
+    margin: 6rem 0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    animation: tickerLoop 24s linear infinite;
+}
+
+.ticker-item {
+    font-family: var(--font-display);
+    color: var(--bg-dark);
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 0 2.5rem;
+    letter-spacing: 0.5px;
+}
+
+@keyframes tickerLoop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* --- 6. Manifesto / Core Capabilities Section --- */
+.manifesto-section {
+    padding: 6rem 0;
+}
+
+.manifesto-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.manifesto-text {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--text-muted);
+    max-width: 850px;
+    line-height: 1.7;
+    margin-bottom: 5rem;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.cap-card {
+    background: var(--card-bg);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+}
+
+.cap-card:hover {
+    border-color: var(--neon-green);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(57, 255, 20, 0.04);
+}
+
+.cap-card i {
+    font-size: 2.3rem;
+    color: var(--neon-green);
+    margin-bottom: 2rem;
+}
+
+.cap-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cap-card p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-size: 0.98rem;
+}
+
+/* --- 7. Works Repository Grid --- */
+.work-section {
+    padding: 6rem 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 3.5rem;
+}
+
+@media(max-width: 560px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    border-color: var(--electric-yellow);
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.project-img-placeholder {
+    height: 300px;
+    background: linear-gradient(135deg, #0f1411 0%, #060907 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.placeholder-icon {
+    font-size: 4.5rem;
+    color: rgba(59, 255, 20, 0.12);
+    transition: var(--transition);
+}
+
+.project-card:hover .placeholder-icon {
+    color: rgba(255, 242, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.project-tag {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background: var(--bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.4rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    font-family: var(--font-display);
+}
+
+.project-info {
+    padding: 2.5rem;
+}
+
+.project-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    font-size: 0.98rem;
+}
+
+.project-link {
+    color: var(--neon-green);
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    color: var(--electric-yellow);
+    gap: 0.9rem;
+}
+
+/* --- 8. The Founding Crew Collective --- */
+.team-section {
+    padding: 6rem 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.team-card {
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+}
+
+.featured-member {
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    background: linear-gradient(180deg, rgba(18, 23, 20, 0.8) 0%, rgba(10, 14, 12, 0.6) 100%);
+    box-shadow: 0 15px 40px rgba(57, 255, 20, 0.02);
+}
+
+.featured-member:hover {
+    border-color: var(--electric-yellow);
+    box-shadow: 0 20px 45px rgba(255, 242, 0, 0.03);
+}
+
+.avatar-circle {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(57, 255, 20, 0.06);
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.8rem auto;
+    transition: var(--transition);
+}
+
+.team-card:hover .avatar-circle {
+    transform: scale(1.05);
+}
+
+.featured-member .avatar-circle {
+    background: rgba(255, 242, 0, 0.06);
+    border-color: var(--electric-yellow);
+    color: var(--electric-yellow);
+}
+
+.team-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.role-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--neon-green);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.featured-member .role-tag {
+    color: var(--electric-yellow);
+}
+
+.team-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- 9. Immersive Dark Studio Footer --- */
+footer {
+    background: #040505;
+    padding: 7rem 0 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+.footer-cta {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.footer-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.footer-cta p {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 1.15rem;
+}
+
+.footer-email-btn {
+    background: transparent;
+    color: var(--electric-yellow);
+    border: 2px solid var(--electric-yellow);
+    padding: 1.1rem 2.8rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer-email-btn:hover {
+    background: var(--electric-yellow);
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px rgba(255, 242, 0, 0.35);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding-top: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-socials a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover {
+    color: var(--neon-green);
+    transform: translateY(-2px);
+}
